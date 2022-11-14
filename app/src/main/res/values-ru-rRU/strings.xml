@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Заметки</string>
+    <string name="add_note">Добавить заметку</string>
+    <string name="title">Заголовок</string>
+    <string name="description">Описание</string>
+    <string name="edit_note">Изменить заметку</string>
+    <string name="about_app">О программе</string>
+    <string name="version">Версия: 1.0</string>
+    <string name="developer">Разработчик: SanLex</string>
+    <string name="email">Почта: a.batsulya.31@gmail.com</string>
+    <string name="error_title">Поле не должно быть пустым</string>
+</resources>

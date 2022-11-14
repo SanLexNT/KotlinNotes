@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.EditNoteFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:title="@string/edit_note"
+            app:titleTextColor="@color/white"
+            app:menu="@menu/menu_toolbar_edit"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_margin"
+        android:orientation="vertical"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleEdit"
+            android:textColor="@color/grey"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
+            style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+            android:textSize="@dimen/default_text"
+            android:hint="@string/title"
+            android:inputType="text"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/descriptionEdit"
+            android:textColor="@color/grey"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
+            style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+            android:textSize="@dimen/default_text"
+            android:hint="@string/description"
+            android:inputType="textMultiLine"/>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
