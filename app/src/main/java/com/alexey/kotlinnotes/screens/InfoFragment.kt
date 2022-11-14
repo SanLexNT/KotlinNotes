@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import com.alexey.kotlinnotes.APP
 import com.alexey.kotlinnotes.R
 import com.alexey.kotlinnotes.databinding.FragmentInfoBinding
@@ -24,12 +25,12 @@ class InfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolbarInfo.setOnMenuItemClickListener {
-            if(it.itemId == R.id.item_back){
+        APP.onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
                 APP.navController.navigate(R.id.action_infoFragment_to_listNotesFragment)
             }
-            true
-        }
+
+        })
     }
 
 }

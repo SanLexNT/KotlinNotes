@@ -21,7 +21,7 @@ class EditNoteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentEditNoteBinding.inflate(layoutInflater, container, false)
         note = arguments?.getSerializable("NOTE") as Note
         return binding.root
