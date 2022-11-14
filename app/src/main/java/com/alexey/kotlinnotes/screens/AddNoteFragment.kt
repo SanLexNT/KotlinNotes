@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.navigation.fragment.findNavController
 import com.alexey.kotlinnotes.APP
 import com.alexey.kotlinnotes.R
 import com.alexey.kotlinnotes.REPOSITORY
@@ -27,9 +28,9 @@ class AddNoteFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
+    override fun onStart() {
+        super.onStart()
 
         binding.toolbarAdd.setOnMenuItemClickListener {
 
@@ -41,22 +42,24 @@ class AddNoteFragment : Fragment() {
                     val note = Note(title = title, description = description)
                     REPOSITORY.insertNote(note)
 
-                    APP.navController.navigate(R.id.action_addNoteFragment_to_listNotesFragment)
+                    findNavController().popBackStack()
                 } else{
                     binding.title.error = getString(R.string.error_title)
                 }
             }
             true
         }
+
         APP.onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    APP.navController.navigate(R.id.action_addNoteFragment_to_listNotesFragment)
+                    findNavController().popBackStack()
 
                 }
             }
         )
+
     }
 
     private fun isFilled(title:String): Boolean = title.isNotEmpty()

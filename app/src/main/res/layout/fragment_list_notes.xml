@@ -43,6 +43,10 @@
             app:srcCompat="@drawable/ic_add"
             app:tint="@color/white"
             app:borderWidth="0dp"
+            android:elevation="0dp"
+            app:elevation="0dp"
+            app:fabSize="normal"
+            android:scaleType="fitCenter"
             android:contentDescription="@string/add_note" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

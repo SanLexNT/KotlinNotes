@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.navigation.fragment.findNavController
 import com.alexey.kotlinnotes.APP
 import com.alexey.kotlinnotes.R
 import com.alexey.kotlinnotes.REPOSITORY
@@ -36,6 +37,12 @@ class EditNoteFragment : Fragment() {
         binding.titleEdit.setText(title)
         binding.descriptionEdit.setText(description)
 
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+
         binding.toolbarEdit.setOnMenuItemClickListener {
 
             if(it.itemId == R.id.item_done){
@@ -48,18 +55,18 @@ class EditNoteFragment : Fragment() {
             if(it.itemId == R.id.item_delete){
                 REPOSITORY.removeNote(note)
             }
-            APP.navController.navigate(R.id.action_editNoteFragment_to_listNotesFragment)
+           findNavController().popBackStack()
             true
         }
 
         APP.onBackPressedDispatcher.addCallback(viewLifecycleOwner,
             object : OnBackPressedCallback(true){
 
-            override fun handleOnBackPressed() {
-                APP.navController.navigate(R.id.action_editNoteFragment_to_listNotesFragment)
-            }
+                override fun handleOnBackPressed() {
+                    findNavController().popBackStack()
+                }
 
-        })
+            })
     }
 
 
